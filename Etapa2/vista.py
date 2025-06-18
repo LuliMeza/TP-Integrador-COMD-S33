@@ -101,22 +101,19 @@ class Vista:
         longitud_promedio = [metricas['huffman']['longitud_prom'], metricas['shannon']['longitud_prom']]
         bits_codificados = [metricas['huffman']['bits'], metricas['shannon']['bits']]
 
-        fig, axs = plt.subplots(3, 2, figsize=(12, 10))
+        fig, axs = plt.subplots(3, 1, figsize=(8, 10))
 
-        axs[0][0].bar(algoritmos, tasa_compresion, color=['green', 'blue'])
-        axs[0][0].set_title('Tasa de compresión')
-        axs[0][0].set_ylim(0, max(tasa_compresion) * 1.2)
+        axs[0].bar(algoritmos, tasa_compresion, color=['green', 'blue'])
+        axs[0].set_title('Tasa de compresión')
+        axs[0].set_ylim(0, max(tasa_compresion) * 1.2)
 
-        axs[0][1].bar(algoritmos, longitud_promedio, color=['green', 'blue'])
-        axs[0][1].set_title('Longitud promedio del código')
-        axs[0][1].set_ylim(0, max(longitud_promedio) * 1.2)
+        axs[1].bar(algoritmos, longitud_promedio, color=['green', 'blue'])
+        axs[1].set_title('Longitud promedio del código')
+        axs[1].set_ylim(0, max(longitud_promedio) * 1.2)
 
-        axs[1][0].bar(algoritmos, bits_codificados, color=['green', 'blue'])
-        axs[1][0].set_title('Bits codificados')
-        axs[1][0].set_ylim(0, max(bits_codificados) * 1.2)
-
-        # Ocultamos el gráfico vacío (2,1)
-        axs[2][1].axis('off')
+        axs[2].bar(algoritmos, bits_codificados, color=['green', 'blue'])
+        axs[2].set_title('Bits codificados')
+        axs[2].set_ylim(0, max(bits_codificados) * 1.2)
 
         plt.tight_layout()
 
